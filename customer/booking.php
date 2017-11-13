@@ -391,7 +391,7 @@ if($_GET){
     $_SESSION['seats']=array();
        // $u1=$_GET['city'];
         
-echo '<script>window.location="Seat_select.php"</script>';
+echo '<script>window.location="preference.php"</script>';
 }
 
     }
