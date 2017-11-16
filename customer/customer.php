@@ -134,13 +134,13 @@ $db = mysqli_connect("localhost", "root", 'bd13011996', "ticketbooking");
         <div class="w3-col l12 s12">
 
             <!-- Blog entry -->
-            <div class="w3-container w3-white w3-margin w3-padding-large">
+<!--            <div class="w3-container w3-white w3-margin w3-padding-large">-->
 
                 <h2 style="text-align: center";>Select Option </h2>
                 <br>
                 <div class="select-boxes">
                 </div>
-            </div>
+<!--            </div>-->
 
 <!--<form action="bookedTicket.php">
         <input type="submit" name="BookedTicket" value="BookedTicket">
