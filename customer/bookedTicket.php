@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 <title>Demo|Lisenme</title>
 <meta charset="UTF-8">
@@ -11,6 +14,11 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="jquery.min.js"></script>
+     <link href="css/bootstrap.min_1.css" rel="stylesheet">
+	<link href="css/responsive-slider.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+        <link href="css/style_2.css" rel="stylesheet">
 
 <style>
 
@@ -64,19 +72,38 @@
 <body class="w3-blue">
 
 <!-- Navigation bar with social media icons -->
-<div class="w3-bar w3-black w3-hide-small" style="height:5%">
-    <a href="booking.php" class="w3-bar-item w3-button" ><i class="fa fa-home"></i></a>
-    <a href="booking.php" class="w3-bar-item w3-button" ><i class="fa fa-bus"></i></a>
-    <a href="https://twitter.com/LisenMee" class="w3-bar-item w3-button"><i class="fa fa-book"></i></a>
-    <a href="https://www.youtube.com/channel/UCEdC6Qk_DZ9fX_gUYFJ1tsA" class="w3-bar-item w3-button"><i class="fa fa-search"></i></a>
-    <a href="https://plus.google.com/115714479889692934329" class="w3-bar-item w3-button"><i class="fa fa-phone"></i></a>
-    <!--<a href="https://www.linkedin.com/in/lisen-me-b017a8137/" class="w3-bar-item w3-button"><i class="fa fa-linkedin"></i></a>-->
-</div>
+<header>
+		<div class="container" style="width:100%;">
+			<div class="row">
+				<nav class="navbar navbar-default" role="navigation">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<div class="navbar-brand">
+<!--								<a href="index.html"><h1>Welcome To BuzOn <?php echo $username; ?></h1></a>-->
+							</div>
+						</div>
+						<div class="menu">
+							<ul class="nav nav-tabs" role="tablist">
+								<li role="presentation" class="active"><a href="index.html">Home</a></li>
+								
+                                                                <li role="presentation"><a href="booking.php">Book</a></li>
+                                                                <li role="presentation"><a href="update.php">Update</a></li>
+                                                                <li role="presentation"><a href="bookedTicket.php">My Bookings</a></li>
+                                                                <li role="presentation"><a href="blog.html">Logout</a></li>
+                                                                <li role="presentation"><a href="reomve.php">Deactivate</a></li>
+								<li role="presentation"><a href="contacts.html">Contact</a></li>
+							</ul>
+						</div>
+					</div>			
+				</nav>
+			</div>
+		</div>
+	</header>
 <div class="w3-content" style="max-width:1600px">
 
-    <!-- Header -->
-    <header class="w3-container w3-center w3-padding-48 w3-white">
-        <h1 class="w3-xxxlarge"><a href="http://www.lisenme.com/"><img src="img/logon.jpg" alt="Girl Hat" style="width:20%" class="w3-padding-16"></a></h1>
+<!--     Header 
+-->    <header class="w3-container w3-center w3-padding-48 w3-white">
+    <h1 class="w3-xxxlarge"><a href="http://www.lisenme.com/"><img src="img/logon1.jpg" alt="Girl Hat" style="width:25%; height:35%;" class="w3-padding-16"></a></h1>
         <h6>Welcome to  <span class="w3-tag">BusOn</span></h6>
 
 
@@ -101,7 +128,7 @@
  * Date: 08-Nov-17
  * Time: 04:19 PM
  */
-session_start();
+
 $id=$_SESSION['id'];
 
 $db = mysqli_connect("localhost", "root", 'bd13011996', "ticketbooking");

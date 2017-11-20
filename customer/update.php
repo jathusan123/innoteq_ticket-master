@@ -49,13 +49,13 @@ if(isset($_POST['submit'])){
 ?>
 <!DOCTYPE html>
 <html>
-<head>
+<!--<head>
     <title>Your details</title>
 </head>
 <body>
 <h1>Update Your Details</h1>
 <html>
-<title>Demo|Lisenme</title>
+<title>Demo|Lisenme</title>-->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css.css">
@@ -67,7 +67,17 @@ if(isset($_POST['submit'])){
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+<link rel="stylesheet" href="css/style_3.css">
+<link href="css/bootstrap.min_1.css" rel="stylesheet">
+	<!--<link href="css/responsive-slider.css" rel="stylesheet">-->
+	<link rel="stylesheet" href="css/animate.css">
+	<!--<link rel="stylesheet" href="css/font-awesome.min.css">-->
+        <link href="css/style_2.css" rel="stylesheet">	
 <style>
 
     h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
@@ -120,17 +130,35 @@ if(isset($_POST['submit'])){
 <body class="w3-blue">
 
 <!-- Navigation bar with social media icons -->
-<div class="w3-bar w3-black w3-hide-small" style="height:5%">
-    <a href="booking.php" class="w3-bar-item w3-button" ><i class="fa fa-home"></i></a>
-    <a href="booking.php" class="w3-bar-item w3-button" ><i class="fa fa-bus"></i></a>
-    <a href="https://twitter.com/LisenMee" class="w3-bar-item w3-button"><i class="fa fa-book"></i></a>
-    <a href="https://www.youtube.com/channel/UCEdC6Qk_DZ9fX_gUYFJ1tsA" class="w3-bar-item w3-button"><i class="fa fa-search"></i></a>
-    <a href="https://plus.google.com/115714479889692934329" class="w3-bar-item w3-button"><i class="fa fa-phone"></i></a>
-    <!--<a href="https://www.linkedin.com/in/lisen-me-b017a8137/" class="w3-bar-item w3-button"><i class="fa fa-linkedin"></i></a>-->
-</div>
-<div class="w3-content" style="max-width:1600px">
+<header>
+		<div class="container" style="width:100%;">
+			<div class="row">
+				<nav class="navbar navbar-default" role="navigation">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<div class="navbar-brand">
+<!--								<a href="index.html"><h1>Welcome To BuzOn <?php echo $username; ?></h1></a>-->
+							</div>
+						</div>
+						<div class="menu">
+							<ul class="nav nav-tabs" role="tablist">
+								<li role="presentation" class="active"><a href="index.html">Home</a></li>
+								
+                                                                <li role="presentation"><a href="booking.php">Book</a></li>
+                                                                <li role="presentation"><a href="update.php">Update</a></li>
+                                                                <li role="presentation"><a href="bookedTicket.php">My Bookings</a></li>
+                                                                <li role="presentation"><a href="blog.html">Logout</a></li>
+                                                                <li role="presentation"><a href="reomve.php">Deactivate</a></li>
+								<li role="presentation"><a href="contacts.html">Contact</a></li>
+							</ul>
+						</div>
+					</div>			
+				</nav>
+			</div>
+		</div>
+	</header>
 
-    <!-- Header -->
+     
     <header class="w3-container w3-center w3-padding-48 w3-white">
         <h1 class="w3-xxxlarge"><a href="http://www.lisenme.com/"><img src="img/logon.jpg" alt="Girl Hat" style="width:20%" class="w3-padding-16"></a></h1>
         <h6>Welcome to  <span class="w3-tag">BusOn</span></h6>
@@ -143,7 +171,7 @@ if(isset($_POST['submit'])){
 
 
     <!-- Grid -->
-    <div class="w3-row w3-padding w3-border">
+   
 
         <!-- Blog entries -->
         <div class="w3-col l12 s12">
@@ -151,12 +179,31 @@ if(isset($_POST['submit'])){
             <!-- Blog entry -->
             <!--<div class="w3-container w3-white w3-margin w3-padding-large">-->
 <form method="post" action="update.php">
-    
-    Name:         <input type="text" name="name" value="<?php echo $username;?>"><br><br>
-    Email:        <input type="text" name="email" value="<?php echo $email;?>"readonly><br><br>
-    Phone Number: <input type="int" name="ph_number" value="<?php echo $phone?>"><br><br>
+    <div>
+        <label>
+            <span style= "font-size: 16px;">  Name:      </span>
+        </label>
+                    
 
-    <input type="submit" name="submit" value="Update Details">
+        <!--<input id="cvv" size="6" type="text" value="" autocomplete="off" required />-->
+    </div>
+     <input type="text" name="name"  style="color: black;"value="<?php echo $username;?>"><br><br>
+    <div>
+        <label>
+            <span style= "font-size: 16px;">  Email:      </span>
+        </label>
+        </div>
+     <input type="text" name="email" style="color: black;"value="<?php echo $email;?>"readonly><br><br> 
+     <div>
+        <label>
+            <span style= "font-size: 16px;"> Phone Number:      </span>            <!--<input type="text" name="name"  style="color: black;"value="<?php echo $phone;?>"><br><br>-->
+        </label>
+    </div>
+        <input type="int" name="ph_number" style="color: black;" value="<?php echo $phone?>"><br><br>     
+^  
+    
+
+    <input type="submit" name="submit" style="color: black;" value="Update Details">
 </form>
 </body>
 </html>

@@ -70,14 +70,33 @@
 </style>
 <body class="w3-blue">
 
-<!-- Navigation bar with social media icons -->
-<div class="w3-bar w3-black w3-hide-small" style="height:5%">
-    <a href="booking.php" class="w3-bar-item w3-button" ><i class="fa fa-home"></i></a>
-    <a href="https://twitter.com/LisenMee" class="w3-bar-item w3-button"><i class="fa fa-book"></i></a>
-    <a href="https://www.youtube.com/channel/UCEdC6Qk_DZ9fX_gUYFJ1tsA" class="w3-bar-item w3-button"><i class="fa fa-search"></i></a>
-    <a href="https://plus.google.com/115714479889692934329" class="w3-bar-item w3-button"><i class="fa fa-phone"></i></a>
-    <!--<a href="https://www.linkedin.com/in/lisen-me-b017a8137/" class="w3-bar-item w3-button"><i class="fa fa-linkedin"></i></a>-->
-</div>
+<!-- Navigation bar with social media icons --><header>
+		<div class="container" style="width:100%;">
+			<div class="row">
+				<nav class="navbar navbar-default" role="navigation">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<div class="navbar-brand">
+<!--								<a href="index.html"><h1>Welcome To BuzOn <?php echo $username; ?></h1></a>-->
+							</div>
+						</div>
+						<div class="menu">
+							<ul class="nav nav-tabs" role="tablist">
+								<li role="presentation" class="active"><a href="index.html">Home</a></li>
+								
+                                                                <li role="presentation"><a href="booking.php">Book</a></li>
+                                                                <li role="presentation"><a href="update.php">Update</a></li>
+                                                                <li role="presentation"><a href="bookedTicket.php">My Bookings</a></li>
+                                                                <li role="presentation"><a href="blog.html">Logout</a></li>
+                                                                <li role="presentation"><a href="reomve.php">Deactivate</a></li>
+								<li role="presentation"><a href="contacts.html">Contact</a></li>
+							</ul>
+						</div>
+					</div>			
+				</nav>
+			</div>
+		</div>
+	</header>
 <div class="w3-content" style="max-width:1600px">
 
     <!-- Header -->

@@ -1,27 +1,57 @@
-<html>
+<!DOCTYPE html>
+<html >
 <head>
-    <title>Example form</title>
-    <style type="text/css">
-    .container {
-        width: 500px;
-        clear: both;
-    }
-    .container input {
-        width: 100%;
-        clear: both;
-    }
+  <meta charset="UTF-8">
+  <title>Flat Login Form 3.0</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
-    </style>
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+<link rel="stylesheet" href="css/style_3.css">
+
+  
 </head>
+
 <body>
-<div class="container">
-<form>
- <label>First Name</label>
- <input type="text" name="first"><br />
- <label>Last Name</label>
- <input type="text" name="last"><br />
- <label>Email</label>
- <input type="text" name="email"><br />
-</form>
+  
+<!-- Form Mixin-->
+<!-- Input Mixin-->
+<!-- Button Mixin-->
+<!-- Pen Title-->
+<div class="pen-title">
+  <h1>Flat Login Form</h1><span>Pen <i class='fa fa-paint-brush'></i> + <i class='fa fa-code'></i> by <a href='http://andytran.me'>Andy Tran</a></span>
 </div>
+<!-- Form Module-->
+<div class="module form-module">
+  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
+    <div class="tooltip">Click Me</div>
+  </div>
+  <div class="form">
+    <h2>Login to your account</h2>
+    <form>
+      <input type="text" placeholder="Username"/>
+      <input type="password" placeholder="Password"/>
+      <button>Login</button>
+    </form>
+  </div>
+  <div class="form">
+    <h2>Create an account</h2>
+    <form>
+      <input type="text" placeholder="Username"/>
+      <input type="password" placeholder="Password"/>
+      <input type="email" placeholder="Email Address"/>
+      <input type="tel" placeholder="Phone Number"/>
+      <button>Register</button>
+    </form>
+  </div>
+  <div class="cta"><a href="http://andytran.me">Forgot your password?</a></div>
+</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://codepen.io/andytran/pen/vLmRVp.js'></script>
+
+    <script  src="js/index.js"></script>
+
 </body>
+</html>

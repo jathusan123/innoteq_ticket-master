@@ -20,13 +20,13 @@ foreach ($myArray as $pal){
     $key = array_search($pal, $seat_al2)+1;
     //$d2=$seat_al2[$key];
 array_push($d, $key);}
-   foreach($d as $so){
-      // $_SESSION['seats']
-        
-        
-      $seat_id= ($so);
-     $query1 = $db->query("INSERT INTO booking (date,time,route_id,bus_id,payment_status,seat_no,customer_id,operator_id,arrive_place,depart_place )VALUES( '$date', '$time','$route_id','$bus_id','None','$seat_id','$user_id','$n7','$start_place','$destination' )");
-         }// $a = array_diff($a,
+//   foreach($d as $so){
+//      // $_SESSION['seats']
+//        
+//      echo $so;  
+//      $seat_id= ($so);
+//     $query1 = $db->query("INSERT INTO booking (date,time,route_id,bus_id,payment_status,seat_no,customer_id,operator_id,arrive_place,depart_place )VALUES( '$date', '$time','$route_id','$bus_id','None','$seat_id','$user_id','$n7','$start_place','$destination' )");
+//         }// $a = array_diff($a,
 
 if($_GET){
   
@@ -268,7 +268,9 @@ button{
 <?php
 if($_GET){
     if($_GET['later']){
+        
          echo '<script>window.location="customer.php"</script>';
+         //
     }
     if($_GET['credit']){
          echo '<script>window.location="Credit.php"</script>';

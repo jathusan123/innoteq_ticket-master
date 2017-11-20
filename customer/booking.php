@@ -25,6 +25,11 @@ $query11 = $db->query("INSERT INTO date (date)VALUES( '$value')");}
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link href="css/bootstrap.min_1.css" rel="stylesheet">
+	<link href="css/responsive-slider.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+        <link href="css/style_2.css" rel="stylesheet">
 
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
@@ -157,26 +162,48 @@ $(document).ready(function(){
 </script>
       
     
-<body class="w3-blue">
+<body class="w3-white">
 
 <!-- Navigation bar with social media icons -->
-<div class="w3-bar w3-black w3-hide-small">
+<!--<div class="w3-bar w3-black w3-hide-small">
   <a href="https://www.facebook.com/lisenme/" class="w3-bar-item w3-button" ><i class="fa fa-home"></i></a>
   <a href="https://twitter.com/LisenMee" class="w3-bar-item w3-button"><i class="fa fa-book"></i></a>
   <a href="https://www.youtube.com/channel/UCEdC6Qk_DZ9fX_gUYFJ1tsA" class="w3-bar-item w3-button"><i class="fa fa-search"></i></a>
   <a href="https://plus.google.com/115714479889692934329" class="w3-bar-item w3-button"><i class="fa fa-phone"></i></a>
 </div>
-  
+  -->
 <!-- w3-content defines a container for fixed size centered content, 
 and is wrapped around the whole page content, except for the footer in this example -->
 <div class="w3-content" style="max-width:1600px">
 
   <!-- Header -->
-  <header class="w3-container w3-center w3-padding-48 w3-white">
-      <h1 class="w3-xxxlarge"><a href="http://www.lisenme.com/"><img src="img/logon.jpg" alt="Girl Hat" style="width:30%" style="length:160%" class="w3-padding-16"></a></h1>
-    <h6>Welcome to  <span class="w3-tag"> BusOn </span></h6>
-      
-  </header>
+ <header>
+		<div class="container" style="width:100%;">
+			<div class="row">
+				<nav class="navbar navbar-default" role="navigation">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<div class="navbar-brand">
+<!--								<a href="index.html"><h1>Welcome To BuzOn <?php echo $username; ?></h1></a>-->
+							</div>
+						</div>
+						<div class="menu">
+							<ul class="nav nav-tabs" role="tablist">
+                                                            <li role="presentation" ><a href="customer.php">Home</a></li>
+								
+                                                                <li role="presentation"><a href="booking.php">Book</a></li>
+                                                                <li role="presentation"><a href="update.php">Update</a></li>
+                                                                <li role="presentation"><a href="bookedTicket.php">My Bookings</a></li>
+                                                                <li role="presentation"><a href="blog.html">Logout</a></li>
+                                                                <li role="presentation"><a href="reomve.php">Deactivate</a></li>
+								<li role="presentation"><a href="contacts.html">Contact</a></li>
+							</ul>
+						</div>
+					</div>			
+				</nav>
+			</div>
+		</div>
+	</header>
   
   <!-- Image header -->
  
@@ -184,7 +211,7 @@ and is wrapped around the whole page content, except for the footer in this exam
   <!-- Grid -->
 
    
-  <div class="w3-row w3-padding w3-border">
+<!--  <div class="w3-row w3-padding w3-border">-->
 
     <!-- Blog entries -->
     <div class="w3-col l12 s12">
@@ -217,7 +244,7 @@ h6 { font-family: verdana;
 </style><!--
     
       <!-- Blog entry -->
-      <div class="w3-container w3-white w3-margin w3-padding-large">
+      <div class="w3-container w3-white w3-margin w3-padding-large "style="height:10%;">
         
           <h2 style="text-align: center";>Select Your Booking Preference</h2>
           <br>
@@ -235,40 +262,45 @@ h6 { font-family: verdana;
     
     //Count total number of rows
     $rowCount = $query->num_rows;
-    ?>
+    ?><style>
+
+img { position: absolute; left: 50%; top: 50%;  margin: -63px 0 0 -182px;}
+</style>
                <div class="login-page">
   <div class="form">
-      
-  <div class="slideshow-container" style="  position: absolute; right: 65px; ;width: 800px; ">
+      <div >
+          <img src="img/ELEC_CITY.0.jpg" alt="Girl in a jacket" style="width:800px;height:500px; "> 
+      </div>
+<!--  <div class="slideshow-container" style="  position: absolute; right: 65px; ;width: 800px; ">
   <div class="mySlides fade" >
       
     <div class="numbertext">1 / 3</div>
     <img src="img/70266210-bus-wallpapers.jpg" style="width:100%">
-    <!--<div class="text">Caption Text</div>-->
+    <div class="text">Caption Text</div>
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">2 / 3</div>
     <img src="img/volvo2.jpg" style="width:100%">
-    <!--<div class="text">Caption Two</div>-->
+    <div class="text">Caption Two</div>
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">3 / 3</div>
     <img src="img/ELEC_CITY.0.jpg" style="width:100%">
-    <!--<div class="text">Caption Three</div>-->
+    <div class="text">Caption Three</div>
   </div>
 
   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
   <a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
-<br>
+<br>-->
 
-<div style="text-align:center">
+<!--<div style="text-align:center">
   <span class="dot" onclick="currentSlide(1)"></span>
   <span class="dot" onclick="currentSlide(2)"></span>
   <span class="dot" onclick="currentSlide(3)"></span>
-</div> 
+</div> -->
   
     <form class="login-form" >
     <select name="country" id="country" >
