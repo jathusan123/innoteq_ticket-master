@@ -28,7 +28,7 @@
 <!--    <div class="tooltip">Click Me</div>-->
   </div>
   <div class="form">
-    <h2>Enter Details To Join BuzOn</h2>
+    <h2>Enter Details To Join BuzOn As Customer</h2>
 <?php
 /**
  * Created by PhpStorm.
@@ -84,7 +84,7 @@ if(isset($_POST['submit'])) {
 
 <!--            <h1>BECOME BUS OPERATOR</h1>-->
 <!--            <?php
-            echo "BECOME BUS OPERATOR"
+//            echo "BECOME BUS OPERATOR"
 //            ?>
 
             <form method="post" action="bussignup.php">
@@ -94,8 +94,8 @@ if(isset($_POST['submit'])) {
 <!--<h1>SIGNUP AS CUSTOMER</h1>-->
             <?php
 //
-            echo "SIGNUP AS CUSTOMER<br/>";
-            echo '<br/>';
+//            echo "SIGNUP AS CUSTOMER<br/>";
+//            echo '<br/>';
         
 //            ?>
 

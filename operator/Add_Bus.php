@@ -83,19 +83,19 @@ button{
 					<div class="container-fluid">
 						<div class="navbar-header">
 							<div class="navbar-brand">
-<!--								<a href="index.html"><h1>Welcome To BuzOn <?php echo $username; ?></h1></a>-->
+                                                            <a href="operator.php"><h1>Add your bus details here...</h1></a>
 							</div>
 						</div>
 						<div class="menu">
 							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation" class="active"><a href="index.html">Home</a></li>
-								
-                                                                <li role="presentation"><a href="booking.php">Book</a></li>
-                                                                <li role="presentation"><a href="update.php">Update</a></li>
+                                                            <li role="presentation" class="active"><a href="operator.php">Home</a></li>
+								  <li role="presentation"><a href="booking.php">Book Ticket</a></li>
+                                                                <li role="presentation"><a href="update.php">Update Profile</a></li>
                                                                 <li role="presentation"><a href="bookedTicket.php">My Bookings</a></li>
-                                                                <li role="presentation"><a href="blog.html">Logout</a></li>
+                                                                <li role="presentation"><a href="Add_Bus.php">Add Bus</a></li>
+                                                                <li role="presentation"><a href="login.php"  onclick="return confirm('Are you sure to log out?');">Logout</a></li>
                                                                 <li role="presentation"><a href="reomve.php">Deactivate</a></li>
-								<li role="presentation"><a href="contacts.html">Contact</a></li>
+								<!--<li role="presentation"><a href="contacts.html">Contact</a></li>-->
 							</ul>
 						</div>
 					</div>			
@@ -122,16 +122,16 @@ button{
   <!--<div class="w3-row w3-padding w3-border">-->
 
     <!-- Blog entries -->
-    <div class="w3-col l12 s12">
+<!--    <div class="w3-col l12 s12">
     
-      <!-- Blog entry -->
+       Blog entry 
       <div class="w3-container w3-blue w3-margin w3-padding-large " style="height:5%;">
         
           <h2 style="text-align: center";>Add Your Bus Details</h2>
           <br>
           <div class="select-boxes">
-               </div>
-</div>
+               </div>-->
+<!--</div>-->
        <div class="login-page">
   <div class="form">
   
@@ -195,10 +195,13 @@ button{
   </div>
 </div>
     <?php
-    
+    include 'dbconfig.php';
     if($_GET){
-        $bus_name=$_GET['bus_name'];
-        $bus_number=$_GET['bus_no'];
+        
+        $bus_name=mysqli_real_escape_string($con,$_GET['bus_name']);
+        //$uid= $mysqli->escape_string($uid);
+        
+        $bus_number=mysqli_real_escape_string($con,$_GET['bus_no']);
         $bus_route=$_GET['route'];
         $bus_seats=$_GET['seats'];
         $bus_type=$_GET['type'];
@@ -208,7 +211,7 @@ button{
     if(isset($_GET['submit']) ){
           //echo $bus_route;
        if(!isset($bus_name) || trim($bus_name) == '' || !isset($bus_number) || trim($bus_number) == '' || !isset($bus_route) || trim($bus_route) == ''||!isset($bus_type) || trim($bus_type) == '' ||!isset($bus_seats) || trim($bus_seats) == ''){
-           echo "ENTER VALID DETAILS";
+           echo "<script type='text/javascript'>alert(' Enter Valid Details')</script>";
            
        }
         else{$_SESSION['bus_name'] = $bus_name;

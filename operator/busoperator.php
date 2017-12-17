@@ -10,7 +10,7 @@ session_start();
 if (isset($_SESSION['email'])){
     $email = $_SESSION['email'];
     //$operator_id=$_SESSION["operator_id"];
-    $db = mysqli_connect("localhost", "root", '', "bus_booking") or die ("Failed to connect");
+    $db = mysqli_connect("localhost", "root", 'bd13011996', "ticketbooking") or die ("Failed to connect");
     $sql1 = "SELECT * FROM bus_operator WHERE email = '$email'";
     $query=mysqli_query($db,$sql1);
     if ($query){

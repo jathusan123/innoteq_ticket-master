@@ -8,13 +8,27 @@
 $weekOfdays = array();
 $date = new DateTime($date);
 
-for($i=1; $i <= 7; $i++){
+for($i=1; $i <= 5; $i++){
     $date->modify('+1 day');
     $weekOfdays[] = $date->format('Y-m-d');
 }
 $query12= $db->query("TRUNCATE TABLE date");
-foreach ($weekOfdays as $value){
-$query11 = $db->query("INSERT INTO date (date)VALUES( '$value')");}
+$query = $db->query("SELECT DISTINCT bus_id from bus ");
+    
+    //Count total number of rows
+    $rowCount = $query->num_rows;
+    
+    //Display cities list
+    if($rowCount > 0){
+        
+        
+        while($row = $query->fetch_assoc()){
+            $ide=$row['bus_id'];
+           
+            foreach ($weekOfdays as $value){
+            $query11 = $db->query("INSERT INTO date (date,bus_id) VALUES( '$value','$ide')");}
+        }
+    }
     ?>
 <title>Demo|Lisenme</title>
 <meta charset="UTF-8">
@@ -134,6 +148,21 @@ $(document).ready(function(){
                 url:'ajaxData.php',
                 data:'type_id='+typeID,
                 success:function(html){
+                    $('#date').html(html);
+                }
+            }); 
+        }else{
+            $('#date').html('<option value="">Select bus first</option>'); 
+        }
+    });
+        $('#date').on('change',function(){
+        var dateID = $(this).val();
+        if(dateID){
+            $.ajax({
+                type:'POST',
+                url:'ajaxData.php',
+                data:'date_id='+dateID,
+                success:function(html){
                     $('#time').html(html);
                 }
             }); 
@@ -184,7 +213,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 					<div class="container-fluid">
 						<div class="navbar-header">
 							<div class="navbar-brand">
-<!--								<a href="index.html"><h1>Welcome To BuzOn <?php echo $username; ?></h1></a>-->
+								<a href="index.html"><h1>Make Your Booking...</h1></a>
 							</div>
 						</div>
 						<div class="menu">
@@ -194,7 +223,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                                                                 <li role="presentation"><a href="booking.php">Book</a></li>
                                                                 <li role="presentation"><a href="update.php">Update</a></li>
                                                                 <li role="presentation"><a href="bookedTicket.php">My Bookings</a></li>
-                                                                <li role="presentation"><a href="blog.html">Logout</a></li>
+                                                              <li role="presentation"><a href="login.php"  onclick="return confirm('Are you sure to log out?');">Logout</a></li>
                                                                 <li role="presentation"><a href="reomve.php">Deactivate</a></li>
 								<li role="presentation"><a href="contacts.html">Contact</a></li>
 							</ul>
@@ -329,28 +358,29 @@ img { position: absolute; left: 50%; top: 50%;  margin: -63px 0 0 -182px;}
     <select name="type" id="type">
         <option value="">Select Bus First</option>
     </select>
-        <select name="time" id="time">
-        <option value="">Select type First</option>
+        <select name="date" id="date">
+        <option value="">Select Type First</option>
     </select>
           
-        <select name="date" id="date">
-            <option value="">Select Date</option>
+        <select name="time" id="time">
+            <option value="">Select Date First</option>
             
-            <?php 
-    // connecting to DB
-            if(empty($_GET['time'])){
-    $con=  mysqli_connect('localhost','root','bd13011996','ticketbooking');
-    // enable hebrew input
-    mysqli_set_charset($con,'utf8');
-    // read the city table from DB
-    $sql = mysqli_query($con,"SELECT date FROM date");
-    while ($row = mysqli_fetch_array($sql)){
-    // creating temporary variable for each row
-    $city1=$row["date"];
-    //assigning a value to each option in dropdown list
-    echo "<option value=\"$city1\"> $city1 </option>";
-            }}
-    ?>
+            //<?php 
+//    // connecting to DB
+//            if(empty($_GET['time'])){
+//    $con=  mysqli_connect('localhost','root','bd13011996','ticketbooking');
+//    // enable hebrew input
+//    mysqli_set_charset($con,'utf8');
+//    // read the city table from DB
+//    $sql = mysqli_query($con,"SELECT date FROM date");
+//    
+//    while ($row = mysqli_fetch_array($sql)){
+//    // creating temporary variable for each row
+//    $city1=$row["date"];
+//    //assigning a value to each option in dropdown list
+//    echo "<option value=\"$city1\"> $city1 </option>";
+//            }}
+//    ?>
         <!--<option value="">Select time First</option>-->
     </select>
         <input type="submit" class="button" name="insert" value="Confirm" />
@@ -401,20 +431,35 @@ include('dbConfig.php');
   
 
 if($_GET){
-  
+   
+  $datee=$_GET['date'];
     if(isset($_GET['insert'])){
-        $station_id=(string)$_GET['route'];
+         $query = $db->query("SELECT date,bus_id from date WHERE date_id= '$datee'");
+    
+    
+    //Count total number of rows
+    $rowCount = $query->num_rows;
+     if($rowCount > 0){
+      //  echo '<option value="">Select Type</option>';
+        while($row = $query->fetch_assoc()){ 
+            
+            $date=$row['date'];
+            //echo '<option value="'.$row['bus_id'].'">'.$row['date'].'</option>';
+     }}
+        $station_id=$_GET['state'];
         $bus_id=$_GET['type'];
         $time=$_GET['time'];
-        $date=$_GET['date'];
+        
         $t=($_POST["route_id"]);
+        $route_id=$_GET['route'];
     //global $t;
-    $query1 = $db->query("SELECT route_id FROM intermediate_station WHERE station_id = '$station_id'");
-    $rowCount1 = $query1->num_rows;
-    if($rowCount1>0){
-    $row1 = $query1->fetch_assoc();
-    $route_id=$row1["route_id"];}
-    else{$d="167";}
+//    $query1 = $db->query("SELECT route_id FROM intermediate_station WHERE station_id = '$station_id'");
+//    $rowCount1 = $query1->num_rows;
+//    if($rowCount1>0){
+//    $row1 = $query1->fetch_assoc();
+//    $route_id=$row1["route_id"];}
+//    else{$d="167";}
+   
     $_SESSION['station_id'] = $station_id;
     $_SESSION['bus_id'] = $bus_id;
     $_SESSION['time'] = $time;

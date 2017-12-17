@@ -4,7 +4,7 @@ $dbHost = 'localhost';
 $dbUsername = 'root';
 $dbPassword = 'bd13011996';
 $dbName = 'ticketbooking';
- 
+ $con=mysqli_connect("localhost","root","bd13011996","ticketbooking");
 //Connect and select the database
 $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
  

@@ -83,7 +83,7 @@ button{
 					<div class="container-fluid">
 						<div class="navbar-header">
 							<div class="navbar-brand">
-<!--								<a href="index.html"><h1>Welcome To BuzOn <?php echo $username; ?></h1></a>-->
+								<a href="index.html"><h1>Add You bus details here..</h1></a>
 							</div>
 						</div>
 						<div class="menu">
@@ -95,7 +95,7 @@ button{
                                                                 <li role="presentation"><a href="bookedTicket.php">My Bookings</a></li>
                                                                 <li role="presentation"><a href="blog.html">Logout</a></li>
                                                                 <li role="presentation"><a href="reomve.php">Deactivate</a></li>
-								<li role="presentation"><a href="contacts.html">Contact</a></li>
+								<!--<li role="presentation"><a href="contacts.html">Contact</a></li>-->
 							</ul>
 						</div>
 					</div>			
@@ -208,7 +208,7 @@ button{
     if(isset($_GET['submit']) ){
           //echo $bus_route;
        if(!isset($bus_name) || trim($bus_name) == '' || !isset($bus_number) || trim($bus_number) == '' || !isset($bus_route) || trim($bus_route) == ''||!isset($bus_type) || trim($bus_type) == '' ||!isset($bus_seats) || trim($bus_seats) == ''){
-           echo "ENTER VALID DETAILS";
+     echo "<script type='text/javascript'>alert('Enter Valid Details')</script>";
            
        }
         else{$_SESSION['bus_name'] = $bus_name;

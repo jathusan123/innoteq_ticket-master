@@ -2,7 +2,6 @@
 session_start();
 ?>
 <html>
-<title>Demo|Lisenme</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css.css">
@@ -79,17 +78,17 @@ session_start();
 					<div class="container-fluid">
 						<div class="navbar-header">
 							<div class="navbar-brand">
-<!--								<a href="index.html"><h1>Welcome To BuzOn <?php echo $username; ?></h1></a>-->
+								<a href="index.html"><h1>Your Bookings </h1></a>
 							</div>
 						</div>
 						<div class="menu">
 							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation" class="active"><a href="index.html">Home</a></li>
+								     <li role="presentation" class="active"><a href="customer.php">Home</a></li>
 								
                                                                 <li role="presentation"><a href="booking.php">Book</a></li>
                                                                 <li role="presentation"><a href="update.php">Update</a></li>
                                                                 <li role="presentation"><a href="bookedTicket.php">My Bookings</a></li>
-                                                                <li role="presentation"><a href="blog.html">Logout</a></li>
+                                                                 <li role="presentation"><a href="login.php"  onclick="return confirm('Are you sure to log out?');">Logout</a></li>
                                                                 <li role="presentation"><a href="reomve.php">Deactivate</a></li>
 								<li role="presentation"><a href="contacts.html">Contact</a></li>
 							</ul>
@@ -103,8 +102,8 @@ session_start();
 
 <!--     Header 
 -->    <header class="w3-container w3-center w3-padding-48 w3-white">
-    <h1 class="w3-xxxlarge"><a href="http://www.lisenme.com/"><img src="img/logon1.jpg" alt="Girl Hat" style="width:25%; height:35%;" class="w3-padding-16"></a></h1>
-        <h6>Welcome to  <span class="w3-tag">BusOn</span></h6>
+    <h1 class="w3-xxxlarge"><a href="http://www.lisenme.com/"><img src="img/logo_bus.png" alt="Girl Hat" style="width:10%; " class="w3-padding-16"></a></h1>
+        <h6>Welcome to  <span class="w3-tag">BuzOn</span></h6>
 
 
     </header>
@@ -147,15 +146,31 @@ if ($querycust) {
             <th> Arrive Place</th>
             <th> Depature Place</th>
             <th> Seat No</th>
+            <th> Payment</th>
+            <th> Route</th>
+
 
         </tr>
         </thead
         <tbody>
-        <style>
-            table {
-                font-size: large;
-            }
-        </style>
+       <style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 4px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #50c0e9;
+    color: white;
+}
+</style>
 
         <?php
 
@@ -176,7 +191,7 @@ if ($querycust) {
 
                     <td>
                         <form method="post" action="cancel.php">
-                            <input type="submit" name="cancel" value="cancel">
+                            <input type="submit" name="cancel" value="cancel" style="width: 80px" onclick="return confirm('Are you sure to cancel the current booking?');">
 
                         </form>
                     </td>

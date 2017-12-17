@@ -2,7 +2,7 @@
 session_start();
 $email= $_SESSION['email'];
 
-$db = mysqli_connect("localhost", "root", '', "bus_booking") or die ("Failed to connect");
+$db = mysqli_connect("localhost", "root", 'bd13011996', "ticketbooking") or die ("Failed to connect");
 $query = "select name,ph_number,email from bus_operator where email='$email'";
 $result = mysqli_query($db, $query);
 if ($row = mysqli_fetch_array($result)) {
@@ -17,18 +17,18 @@ mysqli_close($db);
 if(isset($_POST['update'])&& (!(empty($_POST['name'])))){
     //echo $email;
     $username = $_POST['name'];
-    echo $username;
+    //echo $username;
     //$id = $_POST['id'];
     //$email=($_POST['email']);
     $phone=($_POST['ph_number']);
 
-    $db = mysqli_connect("localhost", "root", '', "bus_booking") or die ("Failed to connect");
+    $db = mysqli_connect("localhost", "root", 'bd13011996', "ticketbooking") or die ("Failed to connect");
     $query1 = "update bus_operator set name='$username',ph_number='$phone' where email='$email'";
     $result1 = mysqli_query($db,$query1);
     if($result1) {
         //echo $email;
         //echo "Succesfully updated";
-        //header('Location: login.php');
+        header('Location: operator.php');
     }
     else {
         echo "Failed to update";
@@ -40,16 +40,11 @@ if(isset($_POST['update'])&& (!(empty($_POST['name'])))){
 ?>
 <!DOCTYPE html>
 
-<head>
-    <title>Your details</title>
-</head>
 
-<h1>Your Details</h1>
 <html>
-<title>Demo|Lisenme</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css.css">
+<!--<link rel="stylesheet" href="css.css">
 <link type="text/css" rel="stylesheet" href="style.css"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
@@ -57,9 +52,15 @@ if(isset($_POST['update'])&& (!(empty($_POST['name'])))){
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script src="jquery.min.js"></script>
+<script src="jquery.min.js"></script>-->
+<link href="css/bootstrap.min_1.css" rel="stylesheet">
+	<link href="css/responsive-slider.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/animate.css">
+	<!--<link rel="stylesheet" href="css/font-awesome.min.css">-->
+        <link href="css/style_2.css" rel="stylesheet">
 
 <style>
+    
 
     h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
     body {font-family: "Open Sans"}
@@ -92,11 +93,12 @@ if(isset($_POST['update'])&& (!(empty($_POST['name'])))){
         font-family: Georgia;
         font-weight: bold;
         font-size: 14px;
-        height: 39px;
+        height: 35px;
         padding: 7px 8px;
-        width: 350px;
+        width: 200px;
         outline: none;
-        margin: 10px 0 10px 0;}
+        margin: 10px 0 10px 0;
+    color: black;}
 
     button{
         font-family: Georgia;
@@ -108,59 +110,79 @@ if(isset($_POST['update'])&& (!(empty($_POST['name'])))){
         outline: none;
         margin: 10px 0 10px 0;}
 </style>
-<body class="w3-blue">
+<body style="background-color: #1d93d1 ">
 
 <!-- Navigation bar with social media icons -->
-<div class="w3-bar w3-black w3-hide-small" style="height:5%">
-    <a href="booking.php" class="w3-bar-item w3-button" ><i class="fa fa-home"></i></a>
-    <a href="https://twitter.com/LisenMee" class="w3-bar-item w3-button"><i class="fa fa-book"></i></a>
+<!--<div class="w3-bar w3-black w3-hide-small" style="height:5%">
+    <a href="customer.php" class="w3-bar-item w3-button" ><i class="fa fa-home"></i></a>
+    <a href="booking.php" class="w3-bar-item w3-button" ><i class="fa fa-bus"></i></a>
+        <a href="bookedTicket.php" class="w3-bar-item w3-button"><i class="fa fa-book"></i></a>
     <a href="https://www.youtube.com/channel/UCEdC6Qk_DZ9fX_gUYFJ1tsA" class="w3-bar-item w3-button"><i class="fa fa-search"></i></a>
     <a href="https://plus.google.com/115714479889692934329" class="w3-bar-item w3-button"><i class="fa fa-phone"></i></a>
-    <!--<a href="https://www.linkedin.com/in/lisen-me-b017a8137/" class="w3-bar-item w3-button"><i class="fa fa-linkedin"></i></a>-->
-</div>
+    <a href="https://www.linkedin.com/in/lisen-me-b017a8137/" class="w3-bar-item w3-button"><i class="fa fa-linkedin"></i></a>
+</div>-->
 <div class="w3-content" style="max-width:1600px">
 
     <!-- Header -->
-    <header class="w3-container w3-center w3-padding-48 w3-white">
-        <h1 class="w3-xxxlarge"><a href="http://www.lisenme.com/"><img src="img/logon.jpg" alt="Girl Hat" style="width:20%" class="w3-padding-16"></a></h1>
-        <h6>Welcome to  <span class="w3-tag">BusOn</span></h6>
+        <header>
+		<div class="container" style="width:100%;">
+			<div class="row">
+				<nav class="navbar navbar-default" role="navigation">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<div class="navbar-brand">
+								<a href="index.html"><h1>Welcome To BuzOn <?php echo $username; ?></h1></a>
+							</div>
+						</div>
+						<div class="menu">
+							<ul class="nav nav-tabs" role="tablist">
+                                                            <li role="presentation" class="active"><a href="operator.php">Home</a></li>
+								
+                                                                    <li role="presentation"><a href="book.php">Book</a></li>
+                                                                    <li role="presentation"><a href="update_bus.php">Update</a></li>
+                                                                    <li role="presentation"><a href="details.php">My Details</a></li>
+                                                                <li role="presentation"><a href="availability.php">Availability</a></li>
+                                                              
+                                  
+                                               
+								<li role="presentation"><a href="contacts.html">Contact</a></li>
+                                                                <li role="presentation"><a href="login.php"  onclick="return confirm('Are you sure to log out?');">Logout</a></li>
+                                                               <li role="presentation"><a href="reomve.php">Deactivate</a></li>
+							</ul>
+						</div>
+					</div>			
+				</nav>
+			</div>
+		</div>
+	</header>
+    
+
+<!-- Navigation bar with social media icons -->
 
 
-    </header>
 
+    <!-- Header -->
+   
 
     <!-- Image header -->
 
 
     <!-- Grid -->
-    <div class="w3-row w3-padding w3-border">
-
-        <!-- Blog entries -->
-        <div class="w3-col l12 s12">
-
-            <!-- Blog entry -->
-            <div class="w3-container w3-white w3-margin w3-padding-large">
-
-                <h2 style="text-align: center";>Select Your Seat Preference</h2>
-                <br>
-                <div class="select-boxes">
-                </div>
-            </div>
+   
 <form method="post" action="update_bus.php">
 
-    name:<input type="text" name="name" value="<?php echo $username;?>"><br><br>
-    email:<input type="text" name="email" value="<?php echo $email;?>"readonly><br><br>
-    Phoneno:<input type="int" name="ph_number" value="<?php echo $phone?>"><br><br>
+    <label style="color: black; font-size:20px">Name:___ </label>
+    <input type="text" name="name" value="<?php echo $username;?>"><br><br>
+    <label style="color: black; font-size:20px">E-Mail:___ </label>
+    <input type="text" name="email" value="<?php echo $email;?>"readonly><br><br>
+    <label style="color: black; font-size:20px">TP No:___</label>
+    <input type="int" name="ph_number" value="<?php echo $phone?>"><br><br>
 
-    <input type="submit" name="update" value="Update">
+    <input type="submit" name="update" value="Update" onclick="return confirm('Are you sure to update your details?');">
 
 </form><br>
-<form action="busoperator.php">
-    <input type="submit" name="back" value="Back">
-</form>
-<form action="busoperator.php">
-    <input type="submit" name="back" value="Back">
-</form>
+
+
 
 </body>
 </html>

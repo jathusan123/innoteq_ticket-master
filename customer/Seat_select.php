@@ -122,20 +122,10 @@ $rowCounte = $querye->num_rows;
 $columnValues = Array();
 if($rowCounte > 0){
 
-
-
 while ( $row4 = $querye->fetch_assoc()) {
 
   $columnValues[] = $row4['seat_no'];
-
 }
-//$_SESSION['seats'] = $columnValues;
-//echo '<script>window.location="Seat_select.php"</script>';
-
-
-
-
-
 }
 else{
    // $_SESSION['seats'] = $columnValues;

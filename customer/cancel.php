@@ -1,5 +1,27 @@
 
 <!DOCTYPE html>
+   <?php
+///**
+// * Created by PhpStorm.
+// * User: G2
+// * Date: 08-Nov-17
+// * Time: 11:42 AM
+//// */echo "Are you sure to cancel ticket?";
+session_start();
+   $booking_id=$_SESSION['booking_id'];
+
+    $db = mysqli_connect("localhost", "root", 'bd13011996', "ticketbooking");
+    $sqldel="delete from booking where booking_id=$booking_id";
+    $querydel=mysqli_query($db,$sqldel);
+    if($querydel){
+       // echo"Your Booking Has Canceled";
+    }
+    ?>
+<!--    <form method="post" action="customer.php">
+    
+
+</form>-->
+ 
 <html>
 <head>
     <title>PHP-SQL Login</title>
@@ -18,6 +40,12 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="jquery.min.js"></script>
+  <link href="css/bootstrap.min_1.css" rel="stylesheet">
+	<link href="css/responsive-slider.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+        <link href="css/style_2.css" rel="stylesheet">
+
 
 <style>
 
@@ -77,7 +105,7 @@
 					<div class="container-fluid">
 						<div class="navbar-header">
 							<div class="navbar-brand">
-<!--								<a href="index.html"><h1>Welcome To BuzOn <?php echo $username; ?></h1></a>-->
+								<a href="index.html"><h1>Your booking has cancelled successully </h1></a>
 							</div>
 						</div>
 						<div class="menu">
@@ -101,43 +129,21 @@
 
     <!-- Header -->
     <header class="w3-container w3-center w3-padding-48 w3-white">
-        <h1 class="w3-xxxlarge"><a href="http://www.lisenme.com/"><img src="img/logon.jpg" alt="Girl Hat" style="width:20%" class="w3-padding-16"></a></h1>
-        <h6>Welcome to  <span class="w3-tag">BusOn</span></h6>
+      <h1 class="w3-xxxlarge"><a href="http://www.lisenme.com/"><img src="img/logo_bus.png" alt="Girl Hat" style="width:10%; " class="w3-padding-16"></a></h1>
+
+        <h6>Welcome to  <span class="w3-tag">BuzOn</span></h6>
 
 
     </header>
-    <?php
-/**
- * Created by PhpStorm.
- * User: G2
- * Date: 08-Nov-17
- * Time: 11:42 AM
- */echo "Are you sure to cancel ticket?";
-session_start();
- ?>
-<form method="post" action="cancel.php">
-    <input type="submit" name="yes" value="yes">
+ 
+<!--<form method="post" action="cancel.php">
+    <input style="color: #000"type="submit" name="yes" value="Yes">
 
 </form>
-<?php
-if(isset($_POST['yes'])) {
-    $booking_id=$_SESSION['booking_id'];
+    <form method="post" action="bookedTicket.php">
+        <input   style="color: #000" type="submit" name="customer" value="No">
+</form>-->
 
-    $db = mysqli_connect("localhost", "root", 'bd13011996', "ticketbooking");
-    $sqldel="delete from booking where booking_id=$booking_id";
-    $querydel=mysqli_query($db,$sqldel);
-    if($querydel){
-        echo"Your Booking Has Canceled";
-    }
-    ?>
-    <form method="post" action="customer.php">
-    <input type="submit" name="customer" value="Goto Home">
-
-</form>
-
-<?php
-}
-?>
 
 
     <!-- Image header -->

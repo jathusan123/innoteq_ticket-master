@@ -41,9 +41,9 @@ $db = mysqli_connect("localhost", "root", 'bd13011996', "ticketbooking");
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css.css">
 <!--<link type="text/css" rel="stylesheet" href="style.css"/>-->
-<!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -135,10 +135,11 @@ $db = mysqli_connect("localhost", "root", 'bd13011996', "ticketbooking");
 							<ul class="nav nav-tabs" role="tablist">
                                                             <li role="presentation" class="active"><a href="customer.php">Home</a></li>
 								
-                                                                <li role="presentation"><a href="booking.php">Book</a></li>
-                                                                <li role="presentation"><a href="update.php">Update</a></li>
+                                                                <li role="presentation"><a href="booking.php">Book Ticket</a></li>
+                                                                <li role="presentation"><a href="update.php">Update Profile</a></li>
                                                                 <li role="presentation"><a href="bookedTicket.php">My Bookings</a></li>
-                                                                <li role="presentation"><a href="blog.html">Logout</a></li>
+                                                                <!--<li role="presentation"><a href="Add_Bus.php">Add Bus</a></li>-->
+                                                                <li role="presentation"><a href="login.php"  onclick="return confirm('Are you sure to log out?');">Logout</a></li>
                                                                 <li role="presentation"><a href="reomve.php">Deactivate</a></li>
 								<li role="presentation"><a href="contacts.html">Contact</a></li>
 							</ul>

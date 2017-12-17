@@ -137,12 +137,12 @@ if(isset($_POST['submit'])){
 					<div class="container-fluid">
 						<div class="navbar-header">
 							<div class="navbar-brand">
-<!--								<a href="index.html"><h1>Welcome To BuzOn <?php echo $username; ?></h1></a>-->
+								<a ><h1>Update Your Details</h1></a>
 							</div>
 						</div>
 						<div class="menu">
 							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation" class="active"><a href="index.html">Home</a></li>
+								     <li role="presentation" class="active"><a href="customer.php">Home</a></li>
 								
                                                                 <li role="presentation"><a href="booking.php">Book</a></li>
                                                                 <li role="presentation"><a href="update.php">Update</a></li>
@@ -160,7 +160,7 @@ if(isset($_POST['submit'])){
 
      
     <header class="w3-container w3-center w3-padding-48 w3-white">
-        <h1 class="w3-xxxlarge"><a href="http://www.lisenme.com/"><img src="img/logon.jpg" alt="Girl Hat" style="width:20%" class="w3-padding-16"></a></h1>
+        <h1 class="w3-xxxlarge"><a href="http://www.lisenme.com/"><img src="img/logo_bus.png" alt="Girl Hat" style="width:10%; " class="w3-padding-16"></a></h1>
         <h6>Welcome to  <span class="w3-tag">BusOn</span></h6>
 
 
@@ -187,20 +187,20 @@ if(isset($_POST['submit'])){
 
         <!--<input id="cvv" size="6" type="text" value="" autocomplete="off" required />-->
     </div>
-     <input type="text" name="name"  style="color: black;"value="<?php echo $username;?>"><br><br>
+     <input type="text" name="name"  style="color: black;"value="<?php echo $username;?>">
     <div>
         <label>
             <span style= "font-size: 16px;">  Email:      </span>
         </label>
         </div>
-     <input type="text" name="email" style="color: black;"value="<?php echo $email;?>"readonly><br><br> 
+     <input type="text" name="email" style="color: black;"value="<?php echo $email;?>"readonly>
      <div>
         <label>
             <span style= "font-size: 16px;"> Phone Number:      </span>            <!--<input type="text" name="name"  style="color: black;"value="<?php echo $phone;?>"><br><br>-->
         </label>
     </div>
-        <input type="int" name="ph_number" style="color: black;" value="<?php echo $phone?>"><br><br>     
-^  
+        <input type="int" name="ph_number" style="color: black;" value="<?php echo $phone?>"><br><br>    
+
     
 
     <input type="submit" name="submit" style="color: black;" value="Update Details">
