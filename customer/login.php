@@ -7,7 +7,7 @@ session_destroy();
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Flat Login Form 3.0</title>
+  <title>Login</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
@@ -36,7 +36,7 @@ session_destroy();
   <div class="form">
     <h2>Login to your account</h2>
     <form method="post" action="login.php">
-      <input type="text"  name="email" placeholder="Username"/>
+      <input type="text"  name="email" placeholder="Email"/>
       <input type="password"  name="password" placeholder="Password"/>
        <input type="submit" name="submit" value="Login">
     </form>
@@ -78,7 +78,7 @@ if(isset($_POST['submit'])) {
     $password = strip_tags(md5($_POST['password']));
     $sql = "SELECT * FROM login where email = '$email'";
 
-    $db = mysqli_connect("localhost", "root", 'bd13011996', "ticketbooking");
+    $db = mysqli_connect("localhost", "root", '', "ticketbooking");
 
     $query = mysqli_query($db, $sql);
 
@@ -91,7 +91,9 @@ if(isset($_POST['submit'])) {
         $status=$row[3];
         $_SESSION['role'] = $role;
         if($status=='active') {
-            if ($email == $emailDB && $password == $passwordDB) {
+            if ($email == $emailDB ){
+
+            if($password == $passwordDB) {
                 $_SESSION['email'] = $email;
                 if ($role == "bus") {
                     header('Location: busoperator.php');
@@ -99,9 +101,15 @@ if(isset($_POST['submit'])) {
                     header('Location: customer.php');
 
                 }
-            } else {
+            }
+            else{
                 echo "Your password is incorrect.";
             }
+            }
+
+        }
+        else {
+            echo "Invalid email address";
         }
     }
 

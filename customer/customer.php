@@ -11,7 +11,7 @@ session_start();
 if (isset($_SESSION['email'])){
     $email = $_SESSION['email'];
 
-    $db = mysqli_connect("localhost", "root", 'bd13011996', "ticketbooking") or die ("Failed to connect");
+    $db = mysqli_connect("localhost", "root", '', "ticketbooking") or die ("Failed to connect");
     $sql1 = "SELECT * FROM customer WHERE email = '$email'";
     $query=mysqli_query($db,$sql1);
     if ($query){
@@ -33,7 +33,7 @@ else {
 <html>
 
 <?php
-$db = mysqli_connect("localhost", "root", 'bd13011996', "ticketbooking");
+$db = mysqli_connect("localhost", "root", '', "ticketbooking");
 ?>
 <html>
 <title>Demo|Lisenme</title>

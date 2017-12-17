@@ -2,7 +2,7 @@
 //db details
 $dbHost = 'localhost';
 $dbUsername = 'root';
-$dbPassword = 'bd13011996';
+$dbPassword = '';
 $dbName = 'ticketbooking';
  
 //Connect and select the database

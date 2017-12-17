@@ -43,41 +43,51 @@ if(isset($_POST['submit'])) {
     if (($_POST['password']) != $_POST['cpassword']) {
         echo "password do not match";
     }
-    else{
-        $db = mysqli_connect("localhost", "root", 'bd13011996', "ticketbooking") or die ("Failed to connect");
+    else {
+        $db = mysqli_connect("localhost", "root", '', "ticketbooking") or die ("Failed to connect");
         $email = ($_POST['email']);
         $sql1 = "SELECT * FROM login WHERE email = '$email'";
         $result1 = mysqli_query($db, $sql1) or die(mysqli_error());
         $username = strip_tags($_POST['name']);
-        if (mysqli_num_rows($result1) > 0) {
-            echo "Provided Email is already in use";
-        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            echo("$email Enter a  valid email address");
-        } else {
-            $password = md5(strip_tags($_POST['password']));
-            if (empty($password)) {
-                echo "Please enter password.";
-            } elseif (strlen(strip_tags($_POST['password'])) < 6) {
-                echo "Too small password";
+        if (ctype_alpha($username)) {
+            if (mysqli_num_rows($result1) > 0) {
+                echo "Provided Email is already in use";
+            } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                echo("$email Enter a  valid email address");
             } else {
-                
                 $phone = ($_POST['phone']);
-                
-                $db = mysqli_connect("localhost", "root", 'bd13011996', "ticketbooking") or die ("Failed to connect");
-                $query = "INSERT INTO bus_operator(name,email,ph_number) VALUES('$username','$email','$phone')";
-                $querylogin = "INSERT INTO login(email,password,role,status) VALUES('$email','$password','bus','active')";
-
-                $result = mysqli_query($db, $query);
-                $resultlogin = mysqli_query($db, $querylogin);
-
-                if ($resultlogin and $result) {
-                    echo "Succesfully registered";
-                    header('Location: login.php');
+                if (strlen(($phone)) != 10 and (strlen(($phone)) != 9)) {
+                    echo "Invalid number";
+                } elseif (ctype_digit($phone)) {
                 } else {
-                    echo "Failed to register";
+                    $password = md5(strip_tags($_POST['password']));
+                    if (empty($password)) {
+                        echo "Please enter password.";
+                    } elseif (strlen(strip_tags($_POST['password'])) < 6) {
+                        echo "Too small password";
+                    } else {
+                        $db = mysqli_connect("localhost", "root", '', "ticketbooking") or die ("Failed to connect");
+                        $query = "INSERT INTO bus_operator(name,email,ph_number) VALUES('$username','$email','$phone')";
+                        $querylogin = "INSERT INTO login(email,password,role,status) VALUES('$email','$password','bus','active')";
+
+                        $result = mysqli_query($db, $query);
+                        $resultlogin = mysqli_query($db, $querylogin);
+
+                        if ($resultlogin and $result) {
+                            echo "Succesfully registered";
+                            header('Location: login.php');
+                        } else {
+                            echo "Failed to register";
+                        }
+                    }
                 }
             }
         }
+        else {
+            echo "Username should be in alphabets(a-z)";
+
+        }
+
     }
 }
 ?>
